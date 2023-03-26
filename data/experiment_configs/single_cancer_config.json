@@ -1,0 +1,28 @@
+{
+  "labels":{
+    "train": "labels/train_pairs.csv",
+    "test": "labels/test_pairs.csv"
+  },
+  "feature_sets": {
+    "Sequence_1024": {
+      "train": "feature_sets/train_seq_1024.csv",
+      "test": "feature_sets/test_seq_1024.csv"
+    },
+    "PPI_ec": {
+      "train": "feature_sets/train_ppi_ec.csv.gz",
+      "test": "feature_sets/test_ppi_ec.csv.gz"
+    },
+    "Crispr_Dependency_Mut": {
+      "train": "feature_sets/train_crispr_dependency_mut.csv.gz",
+      "test": "feature_sets/test_crispr_dependency_mut.csv.gz"
+    },
+    "Crispr_Dependency_Expr": {
+      "train": "feature_sets/train_crispr_dependency_expr_co=1.96.csv.gz",
+      "test": "feature_sets/test_crispr_dependency_expr_co=1.96.csv.gz"
+    },
+    "Tissue": {
+      "train": "feature_sets/train_tissue.csv.gz",
+      "test": "feature_sets/test_tissue.csv.gz"
+    }
+  }
+}
