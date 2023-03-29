@@ -41,13 +41,9 @@
 <tr>
 <td>
   
-Synthetic lethality(SL), a promising interaction between two genes, is a valuable property exploited in targeted cancer therapeutics. Experimentally finding these gene pairs is costly; therefore, we use computational approaches to narrow down the possible pairs to be tested. However, current methods are either performing poorly or prone to bias in the known interactions. Additionally, they do not exploit all possible biological data sources that can be useful.
+Anti-cancer therapies based on synthetic lethality (SL) exploit tumor vulnerabilities for treatment with reduced side effects. Since simultaneous loss-of-function of SL genes causes cell death, tumors with known gene disruptions can be treated by targeting SL partners. Computational selection of promising SL candidates amongst all gene combinations is key to expedite experimental screening. However, current SL prediction models: (i) only use tissue type-specific molecular data, which can be scarce/noisy, limiting performance for some cancers; and (ii) often rely on shared SL patterns across genes, showing sensitivity to prevalent gene selection bias. We propose ELISL, Early-Late Integrated models for SL prediction using forest ensembles. ELISL models ignore shared SL patterns, and integrate context-specific data from cancer cell lines or tumor tissue with context-free functional associations derived from protein sequence. ELISL outperformed existing methods and was more robust to selection bias in 8 cancer types, with prominent contribution from sequence. We found better survival for patients whose tumors carried simultaneous mutations in a BRCA gene together with an ELISL-predicted SL gene from the HH, FGF, or WNT families. ELISL thus arises as a promising strategy to discover SL interactions with therapeutic potential.  
 
-We propose ELISL, early-late integrated synthetic lethality predictors, to identify synthetic lethal pairs by integrating datasets from different biological data sources such as amino acid sequence, PPI, tissue, and cell lines. ELISL is the top performer for some cancer types and competitive for others while preserving the high performance on experiments examining the bias. We have investigated the importance of each dataset and found out that each dataset is necessary for high performance. We provide methodological and biological interpretations for the predicted pairs. Lastly, we propose novel synthetic lethal pairs that are not experimentally validated and show the potential of these pairs.
-
-We are confident that our method can pave the way for novel strategies in synthetic lethality prediction and provide valuable insights for possible SL pairs. 
-
-(Published in Nat.Mac.Int. Dec. 2021  <a href="#">ELISL - Early Late Integrated Synthetic Lethality Predictors in Cancer</a>)
+(In Biorxiv Sep. 2022  <a href="#">ELISL - ELISL: Early-Late Integrated Synthetic Lethality Prediction in Cancer</a>)
 
 </td>
 </tr>
@@ -215,15 +211,14 @@ All the data required to repeat the experiments are shared at <a href="https://s
 
 # Bibtex-Reference
 ```
-@article{tepeli2021elisl,
-  title={Early-Late Integrated Synthetic Lethality Prediction in Cancer},
-  author={Tepeli, Yasin and Seale, Colm and Goncalves, Joana},
-  journal={Nature Machine Intelligence},
-  volume={00},
-  number={0},
-  pages={000},
-  year={2021},
-  publisher={Springer Science and Business Media {LLC}}
+@article{Tepeli2022elisl,
+  doi = {10.1101/2022.09.19.508413},
+  url = {https://doi.org/10.1101/2022.09.19.508413},
+  year = {2022},
+  month = sep,
+  publisher = {Cold Spring Harbor Laboratory},
+  author = {Yasin Tepeli and Colm Seale and Joana Gon{\c{c}}alves},
+  title = {{ELISL}: Early-Late Integrated Synthetic Lethality Prediction in Cancer}
 }
 ```
 
