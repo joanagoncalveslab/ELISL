@@ -52,8 +52,11 @@ Anti-cancer therapies based on synthetic lethality (SL) exploit tumor vulnerabil
 
 ## Framework and Single Cancer Experiment
 ![Framework and Single Cancer Experiment](fig0.png "Framework and single cancer experiment")
-*ELISL framework with cancer experiments*
-**a,** The framework with the main steps: Context Independent(amino acid sequence and PPI) and context-specific(tissue, cell lines) data are collected. 2 automated datasets for context independent and 3 hand-crafted datasets for context-specific data are generated. Another dataset is created by concatenating all the datasets. Decision tree based models, random forests, are trained for each dataset. These models are ensembled using weighted average to give prediction probabilities for each pair. **b,** Number and ratio of positive and negative samples in training set for each cancer type. **c,** Comparison of AUPRC performance of different methods on test set, that was held out during training, for each cancer types over 10 runs. Red lines shows the best of our methods and best of the other methods. P-val shows significance of the difference using the Wilcoxon signed rank test p-value between these two model over 10 runs. EN: Elastic Net
+*ELISL framework, SL label imbalance, and within cancer prediction performance.*  
+**a,** The ELISL framework: six forest ensemble models learn separately from two context-free sources, three context-specific sources, and all data sources together. Context-free sources, amino acid sequence, and PPI. Context-specific sources include: cell line dependency and mutation; cell line dependency and expression; tissue mutation, expression, copy number, and patient survival. Features for context-free sources express sequence and PPI similarity based on embeddings, while features for context-specific sources denote various statistical measures based on molecular profiles.
+The prediction probabilities of the six models are aggregated using weighted average to obtain the final prediction probability for each gene pair. **b,** Number and ratio of positive and negative samples in the train set for each cancer type. **c,** Prediction performance (AUPRC) of SL prediction methods per cancer type over 10 runs using undersampled 80/20 train/test splits (same cancer). 
+Method categories: SL-topology (GCATSL, GRSMF, pca-gCMF); supervised learning, including existing models (SBSL-EN/MUVR), and our proposed ELISL models (ELISL-RF/GB).
+Red lines compare the best ELISL model with the best among the other models. \textit{P} shows the significance of the difference in performance between models over 10 runs, using a two-sided Wilcoxon signed rank test.
 
 
 ## Repository Description
