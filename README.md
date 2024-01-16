@@ -43,7 +43,8 @@
   
 Anti-cancer therapies based on synthetic lethality (SL) exploit tumour vulnerabilities for treatment with reduced side effects, by targeting a gene that is jointly essential with another whose function is lost. Computational prediction is key to expedite SL screening, yet existing methods are vulnerable to prevalent selection bias in SL data and reliant on cancer or tissue type-specific omics, which can be scarce. Notably, sequence similarity remains underexplored as a proxy for related gene function and joint essentiality. We propose ELISL, Early–Late Integrated SL prediction with forest ensembles, using context-free protein sequence embeddings and context-specific omics from cell lines and tissue. Across eight cancer types, ELISL showed superior robustness to selection bias and recovery of known SL genes, as well as promising cross-cancer predictions. Co-occurring mutations in a BRCA gene and ELISL-predicted pairs from the HH, FGF, WNT, or NEIL gene families were associated with longer patient survival times, revealing therapeutic potential. Data: https://doi.org/10.6084/m9.figshare.23607558. Code: https://github.com/joanagoncalveslab/ELISL.  
 
-In Bioinformatics 19 Dec 2023: <a href="https://doi.org/10.1093/bioinformatics/btad764">ELISL: early-late integrated synthetic lethality prediction in cancer</a>
+In Bioinformatics 19 Dec 2023: <a href="https://doi.org/10.1093/bioinformatics/btad764">ELISL: early-late integrated synthetic lethality prediction in cancer</a>.
+
 An earlier preprint appeared in <a href="https://doi.org/10.1101/2022.09.19.508413">bioRxiv</a> on 19 Sep 2022.
 
 </td>
