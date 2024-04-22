@@ -41,13 +41,11 @@
 <tr>
 <td>
   
-Synthetic lethality(SL), a promising interaction between two genes, is a valuable property exploited in targeted cancer therapeutics. Experimentally finding these gene pairs is costly; therefore, we use computational approaches to narrow down the possible pairs to be tested. However, current methods are either performing poorly or prone to bias in the known interactions. Additionally, they do not exploit all possible biological data sources that can be useful.
+Anti-cancer therapies based on synthetic lethality (SL) exploit tumour vulnerabilities for treatment with reduced side effects, by targeting a gene that is jointly essential with another whose function is lost. Computational prediction is key to expedite SL screening, yet existing methods are vulnerable to prevalent selection bias in SL data and reliant on cancer or tissue type-specific omics, which can be scarce. Notably, sequence similarity remains underexplored as a proxy for related gene function and joint essentiality. We propose ELISL, Early–Late Integrated SL prediction with forest ensembles, using context-free protein sequence embeddings and context-specific omics from cell lines and tissue. Across eight cancer types, ELISL showed superior robustness to selection bias and recovery of known SL genes, as well as promising cross-cancer predictions. Co-occurring mutations in a BRCA gene and ELISL-predicted pairs from the HH, FGF, WNT, or NEIL gene families were associated with longer patient survival times, revealing therapeutic potential. Data: https://doi.org/10.6084/m9.figshare.23607558. Code: https://github.com/joanagoncalveslab/ELISL.  
 
-We propose ELISL, early-late integrated synthetic lethality predictors, to identify synthetic lethal pairs by integrating datasets from different biological data sources such as amino acid sequence, PPI, tissue, and cell lines. ELISL is the top performer for some cancer types and competitive for others while preserving the high performance on experiments examining the bias. We have investigated the importance of each dataset and found out that each dataset is necessary for high performance. We provide methodological and biological interpretations for the predicted pairs. Lastly, we propose novel synthetic lethal pairs that are not experimentally validated and show the potential of these pairs.
+In Bioinformatics 19 Dec 2023: <a href="https://doi.org/10.1093/bioinformatics/btad764">ELISL: early-late integrated synthetic lethality prediction in cancer</a>.
 
-We are confident that our method can pave the way for novel strategies in synthetic lethality prediction and provide valuable insights for possible SL pairs. 
-
-(Published in Nat.Mac.Int. Dec. 2021  <a href="#">ELISL - Early Late Integrated Synthetic Lethality Predictors in Cancer</a>)
+An earlier preprint appeared in <a href="https://doi.org/10.1101/2022.09.19.508413">bioRxiv</a> on 19 Sep 2022.
 
 </td>
 </tr>
@@ -56,8 +54,11 @@ We are confident that our method can pave the way for novel strategies in synthe
 
 ## Framework and Single Cancer Experiment
 ![Framework and Single Cancer Experiment](fig0.png "Framework and single cancer experiment")
-*ELISL framework with cancer experiments*
-**a,** The framework with the main steps: Context Independent(amino acid sequence and PPI) and context-specific(tissue, cell lines) data are collected. 2 automated datasets for context independent and 3 hand-crafted datasets for context-specific data are generated. Another dataset is created by concatenating all the datasets. Decision tree based models, random forests, are trained for each dataset. These models are ensembled using weighted average to give prediction probabilities for each pair. **b,** Number and ratio of positive and negative samples in training set for each cancer type. **c,** Comparison of AUPRC performance of different methods on test set, that was held out during training, for each cancer types over 10 runs. Red lines shows the best of our methods and best of the other methods. P-val shows significance of the difference using the Wilcoxon signed rank test p-value between these two model over 10 runs. EN: Elastic Net
+*ELISL framework, SL label imbalance, and within cancer prediction performance.*  
+**a,** The ELISL framework: six forest ensemble models learn separately from two context-free sources, three context-specific sources, and all data sources together. Context-free sources, amino acid sequence, and PPI. Context-specific sources include: cell line dependency and mutation; cell line dependency and expression; tissue mutation, expression, copy number, and patient survival. Features for context-free sources express sequence and PPI similarity based on embeddings, while features for context-specific sources denote various statistical measures based on molecular profiles.
+The prediction probabilities of the six models are aggregated using weighted average to obtain the final prediction probability for each gene pair. **b,** Number and ratio of positive and negative samples in the train set for each cancer type. **c,** Prediction performance (AUPRC) of SL prediction methods per cancer type over 10 runs using undersampled 80/20 train/test splits (same cancer). 
+Method categories: SL-topology (GCATSL, GRSMF, pca-gCMF); supervised learning, including existing models (SBSL-EN/MUVR), and our proposed ELISL models (ELISL-RF/GB).
+Red lines compare the best ELISL model with the best among the other models. \textit{P} shows the significance of the difference in performance between models over 10 runs, using a two-sided Wilcoxon signed rank test.
 
 
 ## Repository Description
@@ -215,15 +216,19 @@ All the data required to repeat the experiments are shared at <a href="https://s
 
 # Bibtex-Reference
 ```
-@article{tepeli2021elisl,
-  title={Early-Late Integrated Synthetic Lethality Prediction in Cancer},
-  author={Tepeli, Yasin and Seale, Colm and Goncalves, Joana},
-  journal={Nature Machine Intelligence},
-  volume={00},
-  number={0},
-  pages={000},
-  year={2021},
-  publisher={Springer Science and Business Media {LLC}}
+@article{Tepeli2023elisl,
+    author = {Tepeli, Yasin I and Seale, Colm and Gonçalves, Joana P},
+    title = {{ELISL: early–late integrated synthetic lethality prediction in cancer}},
+    journal = {Bioinformatics},
+    volume = {40},
+    number = {1},
+    pages = {btad764},
+    year = {2023},
+    month = {12},
+    abstract = {{Anti-cancer therapies based on synthetic lethality (SL) exploit tumour vulnerabilities for treatment with reduced side effects, by targeting a gene that is jointly essential with another whose function is lost. Computational prediction is key to expedite SL screening, yet existing methods are vulnerable to prevalent selection bias in SL data and reliant on cancer or tissue type-specific omics, which can be scarce. Notably, sequence similarity remains underexplored as a proxy for related gene function and joint essentiality. We propose ELISL, Early–Late Integrated SL prediction with forest ensembles, using context-free protein sequence embeddings and context-specific omics from cell lines and tissue. Across eight cancer types, ELISL showed superior robustness to selection bias and recovery of known SL genes, as well as promising cross-cancer predictions. Co-occurring mutations in a BRCA gene and ELISL-predicted pairs from the HH, FGF, WNT, or NEIL gene families were associated with longer patient survival times, revealing therapeutic potential. Data: 10.6084/m9.figshare.23607558. Code: github.com/joanagoncalveslab/ELISL.}},
+    issn = {1367-4811},
+    doi = {10.1093/bioinformatics/btad764},
+    url = {https://doi.org/10.1093/bioinformatics/btad764}
 }
 ```
 
