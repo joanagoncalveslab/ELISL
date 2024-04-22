@@ -358,7 +358,8 @@ class ELRRF:
             tr_auc = average_precision_score(train_y, tr_probs)
             probs = clf.predict_proba(test_x)[:, one_ind]
             preds = clf.predict(test_x)
-        except:
+        except Exception as e_training:
+            print(f'Exception happened: {e_training}')
             clf=None
             tr_auc=0
             probs= np.zeros(len(test_x))

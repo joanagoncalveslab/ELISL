@@ -1,0 +1,19 @@
+name: py36_elisl
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.6
+  - umap-learn
+  - pandas
+  - xlrd
+  - openpyxl
+  - absl-py==0.12.0
+  - lightgbm
+  - lifelines
+  - node2vec
+  - scikit-optimize==0.8.1
+  - seaborn
+  - biopython==1.78
+prefix: /home/nfs/ytepeli/.conda/envs/py36_elisl

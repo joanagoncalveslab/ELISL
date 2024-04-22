@@ -1,6 +1,6 @@
-import rpy2
-from rpy2 import robjects
-from rpy2.robjects import pandas2ri
+#import rpy2
+#from rpy2 import robjects
+#from rpy2.robjects import pandas2ri
 import collections as coll
 import pandas as pd
 import numpy as np
